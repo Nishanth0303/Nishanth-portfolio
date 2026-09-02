@@ -3,17 +3,17 @@ const fs = require('fs');
 function createSimplePDF(title, filename) {
   const streamContent = `BT
 /F1 20 Tf
-50 720 Td
+50 730 Td
 (NISHANTH R - ${title}) Tj
-/F1 12 Tf
-0 -30 Td
-(Email: r.nishanth2004@gmail.com | Phone: +91 8220607076) Tj
-0 -20 Td
-(Location: Coimbatore, Tamil Nadu, India) Tj
-0 -30 Td
-(5 Years Experience: PHP, Laravel, CodeIgniter, React, Node.js, MySQL, AI Workflows) Tj
-0 -25 Td
-(Experience: Icore Software Technologies, Rk Creators, Mexerv) Tj
+/F1 11 Tf
+0 -26 Td
+(Email: r.nishanth2004@gmail.com | Phone: +91 8220607076 | Location: Coimbatore, TN) Tj
+0 -24 Td
+(Education: B.E. in Computer Science & Engineering, Ambal Professional Group of Institutions | CGPA: 7.76/10 | 2017-2021) Tj
+0 -24 Td
+(Primary Skills: Native PHP, Laravel 10, CodeIgniter 3/4, MySQL, REST APIs, React, JavaScript, AI Vibe-Coding) Tj
+0 -24 Td
+(Commercial Experience: Icore Software Technologies, Rk Creators, Mexerv, Freelance) Tj
 ET`;
 
   const pdf = `%PDF-1.4
