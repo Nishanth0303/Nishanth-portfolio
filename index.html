@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nishanth R - Full-Stack Developer, Software Developer & Senior PHP Architect. 5 years experience engineering Laravel, CodeIgniter, React, Node.js, enterprise ERPs, CRM platforms, and MySQL databases.">
+  <title>Nishanth R — Full-Stack Developer &amp; Software Developer</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg: #08080b;
+      --bg-alt: #0f0e14;
+      --bg-elevated: #161520;
+      --card: #13121b;
+      --card-hover: #1a1926;
+      --card-border: rgba(255, 255, 255, 0.08);
+      
+      --accent: #ff6a1a;
+      --accent-hover: #ff7d33;
+      --accent-soft: rgba(255, 106, 26, 0.12);
+      --accent-glow: rgba(255, 106, 26, 0.3);
+      
+      --cyan: #38bdf8;
+      --cyan-soft: rgba(56, 189, 248, 0.12);
+      --emerald: #10b981;
+      --emerald-soft: rgba(16, 185, 129, 0.12);
+      
+      --text: #f8fafc;
+      --text-dim: #94a3b8;
+      --text-faint: #64748b;
+      
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+      
+      --max: 1200px;
+      --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(900px 550px at 85% 8%, rgba(255, 106, 26, 0.09), transparent 70%),
+        radial-gradient(700px 500px at 10% 45%, rgba(56, 189, 248, 0.06), transparent 70%),
+        radial-gradient(800px 600px at 50% 90%, rgba(16, 185, 129, 0.05), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+    section { position: relative; z-index: 1; }
+
+    h1, h2, h3, h4, h5 { font-family: var(--font-heading); color: var(--text); }
+    
+    .tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(255, 106, 26, 0.25);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      font-size: 14.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      white-space: nowrap;
+      font-family: var(--font-heading);
+    }
+    .btn:active { transform: scale(0.97); }
+    
+    .btn-solid {
+      background: linear-gradient(135deg, var(--accent), #ea580c);
+      color: #09090c;
+      box-shadow: 0 4px 20px rgba(255, 106, 26, 0.35);
+    }
+    .btn-solid:hover {
+      background: linear-gradient(135deg, #ff7d33, #f97316);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 106, 26, 0.5);
+      color: #000;
+    }
+    
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: var(--card-border);
+      color: var(--text);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    /* ---------- Header / Nav with Passport Photo Avatar ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 8, 11, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-passport-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 15%;
+      border: 2px solid var(--accent);
+      background: radial-gradient(circle, #2a1a12 0%, #09090c 100%);
+      box-shadow: 0 0 16px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .logo-text {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo-text span {
+      display: block;
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dim);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* ---------- HERO SECTION (PASSPORT SIZE PHOTO: IMAGE 2) ---------- */
+    .hero {
+      padding: 60px 0 90px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12.5px;
+      color: #34d399;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+    }
+    .hero-intro {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -1.5px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero-subtitle {
+      font-size: 20px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 14px;
+    }
+    .hero-tagline {
+      font-size: 15.5px;
+      color: var(--text-dim);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 580px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 34px;
+    }
+    .hero-pill {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: #e2e8f0;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+    }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .stat-label { font-size: 12.5px; color: var(--text-dim); font-weight: 500; }
+
+    /* Hero Passport Photo Stage (image_2.png) */
+    .hero-image-stage {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      height: 520px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .hero-svg-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-halo {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 106, 26, 0.3) 0%, rgba(255, 106, 26, 0.05) 60%, transparent 70%);
+      filter: blur(32px);
+      z-index: 1;
+      top: 18%;
+    }
+    .hero-passport-img {
+      position: relative;
+      z-index: 2;
+      width: 96%;
+      height: 96%;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 25px rgba(255, 106, 26, 0.25));
+    }
+    .floating-card-hero {
+      position: absolute;
+      z-index: 3;
+      background: rgba(18, 17, 24, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8);
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+    .floating-card-hero.top { top: 20px; right: -10px; animation-delay: 0s; }
+    .floating-card-hero.bottom { bottom: 25px; left: -10px; animation-delay: 2s; }
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ---------- SECTION HEADINGS ---------- */
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 54px;
+    }
+    .section-head h2 {
+      font-size: 38px;
+      font-weight: 700;
+      margin-top: 12px;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .section-head p {
+      color: var(--text-dim);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ---------- TECHNICAL SKILL HIERARCHY (1 TO 6) ---------- */
+    .skills-section {
+      padding: 90px 0;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .skills-hierarchy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .skill-tier-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-tier-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--card-color, var(--accent));
+    }
+    .skill-tier-card:hover {
+      border-color: var(--card-color, var(--accent));
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+    }
+    .tier-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .tier-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--card-color, var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      border: 1px solid var(--card-border);
+    }
+    .tier-num {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--card-color, var(--accent));
+    }
+    .skill-tier-card h3 { font-size: 18.5px; font-weight: 700; margin-bottom: 10px; }
+    .skill-tier-card p { font-size: 13.5px; color: var(--text-dim); line-height: 1.65; margin-bottom: 16px; flex-grow: 1; }
+    .tier-tags { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+
+    /* ---------- ABOUT SECTION (IMAGE 1: FULL STANDING SUIT PORTRAIT) ---------- */
+    .about-section {
+      padding: 100px 0;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-image-stage {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(170deg, #1f1712, #0c0b09);
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px var(--accent-glow);
+    }
+    .about-full-img {
+      position: relative;
+      z-index: 2;
+      width: 96%;
+      height: 98%;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.95));
+    }
+    .about-badge-card {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(14, 13, 19, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 3;
+    }
+
+    .about-headline { font-size: 34px; font-weight: 700; line-height: 1.25; margin-bottom: 16px; }
+    .about-headline span { color: var(--accent); }
+    .about-bio { font-size: 15px; color: var(--text-dim); line-height: 1.8; margin-bottom: 24px; }
+
+    .education-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .edu-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--cyan-soft);
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Experience Timeline (4 Positions) */
+    .timeline { display: flex; flex-direction: column; gap: 16px; }
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      transition: var(--transition);
+    }
+    .timeline-item:hover { border-color: var(--accent); transform: translateX(4px); }
+    .timeline-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .timeline-title { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+    .timeline-role { font-size: 13.5px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+    .timeline-meta { font-size: 12px; color: var(--text-faint); margin-bottom: 6px; }
+    .timeline-desc { font-size: 13.5px; color: var(--text-dim); line-height: 1.6; }
+
+    /* ---------- FEATURED PROJECTS (6 KEY PROJECTS) ---------- */
+    .projects-section {
+      padding: 90px 0;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 20px var(--accent-glow);
+    }
+    .project-card-header {
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #251610, #09090c);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    .project-card-header i { font-size: 36px; color: var(--accent); margin-bottom: 10px; }
+    .project-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255, 106, 26, 0.35);
+      color: #fff;
+    }
+    .project-card-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+    .project-card-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .project-card-body p { font-size: 13.5px; color: var(--text-dim); line-height: 1.6; margin-bottom: 18px; flex-grow: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+
+    /* ---------- CONTACT SECTION (IMAGE 3: FORMAL STANDING CUTOUT) ---------- */
+    .contact-section { padding: 100px 0 110px; }
+    .contact-hero-wrap {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 50px;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero-wrap::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--cyan), var(--emerald));
+    }
+    .contact-left h2 { font-size: 36px; font-weight: 700; margin-bottom: 12px; }
+    .contact-left p { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 30px; }
+
+    .contact-channels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .channel-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: var(--transition);
+    }
+    .channel-box:hover {
+      border-color: var(--accent);
+      background: rgba(255, 106, 26, 0.03);
+    }
+    .channel-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .channel-val { font-size: 14.5px; font-weight: 700; color: var(--text); word-break: break-all; }
+    .copy-action-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-dim);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      transition: var(--transition);
+    }
+    .copy-action-btn:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Contact Full Standing Image Stage */
+    .contact-image-stage {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .contact-full-img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 25px rgba(255, 106, 26, 0.2));
+    }
+    .contact-halo {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 106, 26, 0.25) 0%, transparent 70%);
+      filter: blur(28px);
+      z-index: 1;
+      top: 15%;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      background: #060608;
+      padding: 50px 0 24px;
+      text-align: center;
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      font-size: 16px;
+      transition: var(--transition);
+    }
+    .social-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-3px);
+    }
+    .footer-copy { font-size: 13px; color: var(--text-faint); }
+
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-image-stage { max-width: 380px; height: 460px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image-stage { max-width: 380px; height: 460px; margin: 0 auto; }
+      .skills-hierarchy-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-hero-wrap { grid-template-columns: 1fr; padding: 32px; }
+      .contact-image-stage { max-width: 360px; height: 420px; margin: 0 auto; }
+    }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 38px; }
+      .skills-hierarchy-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact-channels { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Passport Size Avatar Photo -->
+  <header>
+    <div class="wrap nav">
+      <a href="#home" class="brand-logo">
+        <img src="./image_2.png" alt="Nishanth R - Passport Photo" class="nav-passport-avatar">
+        <div class="logo-text">
+          Nishanth R.
+          <span>Full-Stack &amp; Software Developer</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#skills">Skills Hierarchy</a>
+        <a href="#about">About &amp; Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="./Nishanth_R_Resume.pdf" class="btn btn-solid" style="padding: 10px 20px; font-size: 13.5px;" download>
+        <i class="fa-solid fa-download"></i> Download CV
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION (IMAGE 2: PASSPORT SIZE PHOTO) ================= -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          Available for Full-Stack &amp; Software Developer Roles
+        </div>
+        <div class="hero-intro">Nishanth R. Portfolio</div>
+        <h1>Full-Stack &amp; <span>Software Developer</span></h1>
+        <div class="hero-subtitle">Senior PHP Web Architect &amp; Enterprise Systems Engineer</div>
+        <p class="hero-tagline">
+          <strong>5 years of production experience</strong> engineering robust backend architectures across <strong>Laravel 10, CodeIgniter (v3/v4), and Core PHP</strong>, integrating dynamic <strong>React front ends</strong>, building companion <strong>RESTful APIs</strong>, and accelerating delivery with <strong>AI vibe-coding workflows</strong> based in Coimbatore, India.
+        </p>
+        
+        <div class="hero-pills">
+          <span class="hero-pill"><i class="fa-brands fa-php"></i> Native PHP (OOP)</span>
+          <span class="hero-pill"><i class="fa-brands fa-laravel"></i> Laravel 10</span>
+          <span class="hero-pill"><i class="fa-solid fa-fire"></i> CodeIgniter 3/4</span>
+          <span class="hero-pill"><i class="fa-solid fa-database"></i> MySQL Indexing</span>
+          <span class="hero-pill"><i class="fa-brands fa-react"></i> React &amp; Node.js</span>
+          <span class="hero-pill"><i class="fa-solid fa-robot"></i> AI Vibe-Coding</span>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="./Nishanth_R_Resume.pdf" class="btn btn-solid" download>
+            <i class="fa-solid fa-file-arrow-down"></i> Download Resume (PDF)
+          </a>
+          <a href="#projects" class="btn btn-outline">
+            <i class="fa-solid fa-laptop-code"></i> Explore Projects
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">5 Yrs</span>
+            <span class="stat-label">Production Experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">20+</span>
+            <span class="stat-label">Enterprise Deliveries</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- IMAGE 2: Passport Size Photo in Hero Section Stage -->
+      <div class="hero-image-stage">
+        <svg class="hero-svg-bg" viewBox="0 0 460 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="heroGridDots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1.2" fill="rgba(255, 106, 26, 0.18)" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#heroGridDots)" opacity="0.5" />
+          <circle cx="230" cy="240" r="170" stroke="rgba(255, 106, 26, 0.25)" stroke-width="1.5" stroke-dasharray="8 8" />
+          <circle cx="230" cy="240" r="120" stroke="rgba(56, 189, 248, 0.2)" stroke-width="2" stroke-dasharray="14 10" />
+        </svg>
+
+        <div class="hero-halo"></div>
+
+        <!-- Passport Size Photo Image 2 -->
+        <img src="./image_2.png" alt="Nishanth R - Professional Passport Photo" class="hero-passport-img">
+
+        <!-- Floating Info Badges -->
+        <div class="floating-card-hero top">
+          <div style="width:32px; height:32px; border-radius:8px; background:var(--accent-soft); color:var(--accent); display:flex; align-items:center; justify-content:center; font-size:15px;">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div>
+            <div style="font-size:12px; font-weight:700; color:#fff;">Full-Stack &amp; Software Dev</div>
+            <div style="font-size:10.5px; color:var(--text-dim);">Laravel · React · MySQL</div>
+          </div>
+        </div>
+
+        <div class="floating-card-hero bottom">
+          <div style="width:32px; height:32px; border-radius:8px; background:var(--emerald-soft); color:var(--emerald); display:flex; align-items:center; justify-content:center; font-size:15px;">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div>
+            <div style="font-size:12px; font-weight:700; color:#fff;">5 Years Experience</div>
+            <div style="font-size:10.5px; color:var(--text-dim);">Coimbatore, India</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TECHNICAL SKILL HIERARCHY (1 TO 6) ================= -->
+  <section class="skills-section" id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag-badge"><i class="fa-solid fa-code-fork"></i> Technical Skill Hierarchy</div>
+        <h2>Core Engineering Capabilities</h2>
+        <p>A structured technical hierarchy from native backend systems to modern AI-accelerated workflows.</p>
+      </div>
+
+      <div class="skills-hierarchy-grid">
+        
+        <!-- 1. Core Backend (Primary) -->
+        <div class="skill-tier-card" style="--card-color: #ff6a1a;">
+          <div class="tier-header">
+            <div class="tier-icon"><i class="fa-brands fa-php"></i></div>
+            <div>
+              <div class="tier-num">Tier 1 · Primary Core</div>
+              <h3>Core Backend Engineering</h3>
+            </div>
+          </div>
+          <p>Native PHP mastery, Object-Oriented Programming (OOP), design patterns, secure session handling, cURL, data sanitization, and execution tuning.</p>
+          <div class="tier-tags">
+            <span class="hero-pill">Native PHP</span>
+            <span class="hero-pill">OOP Patterns</span>
+            <span class="hero-pill">Session Security</span>
+            <span class="hero-pill">cURL</span>
+          </div>
+        </div>
+
+        <!-- 2. PHP Frameworks -->
+        <div class="skill-tier-card" style="--card-color: #f97316;">
+          <div class="tier-header">
+            <div class="tier-icon"><i class="fa-brands fa-laravel"></i></div>
+            <div>
+              <div class="tier-num">Tier 2 · Frameworks</div>
+              <h3>Laravel 10 &amp; CodeIgniter</h3>
+            </div>
+          </div>
+          <p>Building modular MVC architectures across Laravel 10 and CodeIgniter (v3 &amp; v4), queue workers, automated PDF generators, and ORM pipelines.</p>
+          <div class="tier-tags">
+            <span class="hero-pill">Laravel 10</span>
+            <span class="hero-pill">CodeIgniter 3 &amp; 4</span>
+            <span class="hero-pill">Eloquent ORM</span>
+            <span class="hero-pill">Queues</span>
+          </div>
+        </div>
+
+        <!-- 3. Database Architecture -->
+        <div class="skill-tier-card" style="--card-color: #38bdf8;">
+          <div class="tier-header">
+            <div class="tier-icon"><i class="fa-solid fa-database"></i></div>
+            <div>
+              <div class="tier-num">Tier 3 · Databases</div>
+              <h3>Database Architecture</h3>
+            </div>
+          </div>
+          <p>MySQL relational modeling, schema normalization, query indexing, EXPLAIN profiling, and ACID performance tuning for high-volume transactions.</p>
+          <div class="tier-tags">
+            <span class="hero-pill">MySQL Modeling</span>
+            <span class="hero-pill">Composite Indexing</span>
+            <span class="hero-pill">EXPLAIN Profiling</span>
+            <span class="hero-pill">ACID Locking</span>
+          </div>
+        </div>
+
+        <!-- 4. APIs & Services -->
+        <div class="skill-tier-card" style="--card-color: #10b981;">
+          <div class="tier-header">
+            <div class="tier-icon"><i class="fa-solid fa-network-wired"></i></div>
+            <div>
+              <div class="tier-num">Tier 4 · APIs</div>
+              <h3>APIs &amp; Microservices</h3>
+            </div>
+          </div>
+          <p>RESTful API design, token-based authentication, companion mobile app endpoints, and third-party payment/logistics integrations documented with Postman.</p>
+          <div class="tier-tags">
+            <span class="hero-pill">REST APIs</span>
+            <span class="hero-pill">Token Auth / JWT</span>
+            <span class="hero-pill">Mobile Gateways</span>
+            <span class="hero-pill">Postman</span>
+          </div>
+        </div>
+
+        <!-- 5. Frontend & UI -->
+        <div class="skill-tier-card" style="--card-color: #60a5fa;">
+          <div class="tier-header">
+            <div class="tier-icon"><i class="fa-brands fa-react"></i></div>
+            <div>
+              <div class="tier-num">Tier 5 · Frontend</div>
+              <h3>Frontend &amp; User Interface</h3>
+            </div>
+          </div>
+          <p>React.js component trees, modern JavaScript (ES6+), semantic HTML5, responsive CSS3, Bootstrap 4/5, jQuery, and AJAX state handling.</p>
+          <div class="tier-tags">
+            <span class="hero-pill">React.js</span>
+            <span class="hero-pill">JavaScript ES6+</span>
+            <span class="hero-pill">HTML5 / CSS3</span>
+            <span class="hero-pill">Bootstrap &amp; AJAX</span>
+          </div>
+        </div>
+
+        <!-- 6. Modern Development (AI Vibe-Coding) -->
+        <div class="skill-tier-card" style="--card-color: #a855f7;">
+          <div class="tier-header">
+            <div class="tier-icon"><i class="fa-solid fa-robot"></i></div>
+            <div>
+              <div class="tier-num">Tier 6 · Modern Velocity</div>
+              <h3>AI-Assisted Vibe-Coding</h3>
+            </div>
+          </div>
+          <p>1+ year hands-on utilizing AI-assisted developer workflows connecting React frontends with Node.js/Laravel backend services for 3x delivery speed.</p>
+          <div class="tier-tags">
+            <span class="hero-pill">AI Vibe-Coding</span>
+            <span class="hero-pill">React + Node.js</span>
+            <span class="hero-pill">Rapid Prototyping</span>
+            <span class="hero-pill">Sprint Velocity</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT SECTION (IMAGE 1: FULL STANDING SUIT PORTRAIT) ================= -->
+  <section class="about-section" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        
+        <!-- IMAGE 1: Full Standing Portrait in Suit Stage -->
+        <div class="about-image-stage">
+          <img src="./image_1.png" alt="Nishanth R - Full Standing Suit Portrait" class="about-full-img">
+          <div class="about-badge-card">
+            <div>
+              <div style="font-size:18px; font-weight:800; color:var(--accent); font-family:var(--font-heading);">5 YEARS</div>
+              <div style="font-size:10.5px; color:var(--text-dim);">COMMERCIAL INDUSTRY EXP</div>
+            </div>
+            <div style="font-size:11.5px; color:#ffaa75; text-align:right;">
+              Coimbatore, Tamil Nadu<br>
+              <span style="color:#34d399;">● Full-Time Ready</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Biography, Education & Complete 4-Company Timeline -->
+        <div>
+          <div class="tag-badge"><i class="fa-solid fa-user-check"></i> Biography &amp; Background</div>
+          <h2 class="about-headline">
+            Engineering High-Reliability <span>Web &amp; Enterprise Platforms</span>
+          </h2>
+          <p class="about-bio">
+            I am a Full-Stack &amp; Software Developer with 5 years of commercial production experience based in Coimbatore, Tamil Nadu. Throughout my career across Icore Software Technologies, Rk Creators, Mexerv, and freelance consulting, I have architected custom ERPs, CRM platforms, billing engines, and e-commerce architectures.
+          </p>
+
+          <!-- Education Card -->
+          <div class="education-card">
+            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div>
+              <div style="font-size:15px; font-weight:700; color:#fff;">B.E. in Computer Science &amp; Engineering</div>
+              <div style="font-size:13px; color:var(--text-dim); margin-top:2px;">Ambal Professional Group of Institutions · CGPA: 7.76 / 10</div>
+              <div style="font-size:11.5px; color:var(--text-faint); margin-top:4px;">Graduated 2017 – 2021 · Coimbatore, India</div>
+            </div>
+          </div>
+
+          <!-- 4 Positions Work Experience History -->
+          <div class="timeline">
+            
+            <!-- 1. Icore -->
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="fa-solid fa-building"></i></div>
+              <div>
+                <div class="timeline-title">Icore Software Technologies</div>
+                <div class="timeline-role">Full Stack / Software Developer</div>
+                <div class="timeline-meta"><i class="fa-regular fa-calendar"></i> Jun 2025 – Present · Coimbatore, India</div>
+                <div class="timeline-desc">Building Laravel/CodeIgniter backends for accounting and e-commerce platforms, integrating React interfaces, and building mobile REST APIs using AI-assisted workflows.</div>
+              </div>
+            </div>
+
+            <!-- 2. Rk Creators -->
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="fa-solid fa-gem"></i></div>
+              <div>
+                <div class="timeline-title">Rk Creators</div>
+                <div class="timeline-role">Full Stack PHP Developer</div>
+                <div class="timeline-meta"><i class="fa-regular fa-calendar"></i> Sep 2022 – Jun 2025 · Coimbatore, India</div>
+                <div class="timeline-desc">Delivering custom ERP, CRM, billing, and jewelry management systems using CodeIgniter and MySQL with composite query indexing.</div>
+              </div>
+            </div>
+
+            <!-- 3. Mexerv -->
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="fa-solid fa-globe"></i></div>
+              <div>
+                <div class="timeline-title">Mexerv</div>
+                <div class="timeline-role">Web Developer</div>
+                <div class="timeline-meta"><i class="fa-regular fa-calendar"></i> Nov 2021 – Sep 2022 · Coimbatore, India</div>
+                <div class="timeline-desc">Creating responsive, mobile-first commercial websites using semantic HTML, CSS, JavaScript, and Bootstrap frameworks.</div>
+              </div>
+            </div>
+
+            <!-- 4. Friendship Community Care -->
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <div>
+                <div class="timeline-title">Friendship Community Care</div>
+                <div class="timeline-role">Freelance Web Developer</div>
+                <div class="timeline-meta"><i class="fa-regular fa-calendar"></i> Sep 2022 · Contract / Remote</div>
+                <div class="timeline-desc">Delivering a complete custom web project from initial architectural concept to live production deployment.</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURED PROJECTS (6 KEY PROJECTS) ================= -->
+  <section class="projects-section" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag-badge"><i class="fa-solid fa-folder-open"></i> Portfolio Deliveries</div>
+        <h2>Featured Production Projects</h2>
+        <p>A curated selection of mission-critical systems delivered across enterprise ERP, CRM, billing, and APIs.</p>
+      </div>
+
+      <div class="projects-grid">
+        
+        <!-- Project 1: Enterprise ERP Platform -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <i class="fa-solid fa-cubes"></i>
+            <div class="project-badge">Enterprise System</div>
+          </div>
+          <div class="project-card-body">
+            <h3>Enterprise ERP Platform</h3>
+            <p>Full modular business resource planning system built with CodeIgniter and MySQL handling multi-branch operations, role access, and business workflows.</p>
+            <div class="project-tags">
+              <span class="hero-pill">CodeIgniter</span>
+              <span class="hero-pill">MySQL</span>
+              <span class="hero-pill">Modular Architecture</span>
+              <span class="hero-pill">RBAC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Complete CRM System -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <i class="fa-solid fa-users-gear"></i>
+            <div class="project-badge">CRM Platform</div>
+          </div>
+          <div class="project-card-body">
+            <h3>Complete CRM System</h3>
+            <p>End-to-end customer relationship and sales pipeline management platform with quotation lifecycle tracking, customer histories, and automated follow-ups.</p>
+            <div class="project-tags">
+              <span class="hero-pill">PHP 8</span>
+              <span class="hero-pill">CodeIgniter</span>
+              <span class="hero-pill">MySQL</span>
+              <span class="hero-pill">Pipeline Logic</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Automated Accounting & Billing Engine -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            <div class="project-badge">Financial Architecture</div>
+          </div>
+          <div class="project-card-body">
+            <h3>Automated Accounting &amp; Billing Engine</h3>
+            <p>Custom transactional accounting engine with multi-slab tax computation, automated invoicing logic, bulk PDF exports, and ledger reporting.</p>
+            <div class="project-tags">
+              <span class="hero-pill">Laravel</span>
+              <span class="hero-pill">MySQL Transactions</span>
+              <span class="hero-pill">DomPDF</span>
+              <span class="hero-pill">Tax Rules</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Wholesale & Retail Jewelry Management Portal -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <i class="fa-solid fa-gem"></i>
+            <div class="project-badge">Specialized ERP</div>
+          </div>
+          <div class="project-card-body">
+            <h3>Wholesale &amp; Retail Jewelry Portal</h3>
+            <p>Specialized jewelry inventory management system with metal rate adjustment rules, batch stock audits, barcode label printing, and sales counters.</p>
+            <div class="project-tags">
+              <span class="hero-pill">Core PHP (OOP)</span>
+              <span class="hero-pill">MySQL Indexing</span>
+              <span class="hero-pill">Barcoding</span>
+              <span class="hero-pill">Auditing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Full-Stack E-Commerce Architectures -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <div class="project-badge">E-Commerce Suite</div>
+          </div>
+          <div class="project-card-body">
+            <h3>Full-Stack E-Commerce Architectures</h3>
+            <p>Dynamic product catalogs, attribute-based price customizers, cart checkout flows, order handling, payment integrations, and React frontend integration.</p>
+            <div class="project-tags">
+              <span class="hero-pill">Laravel 10</span>
+              <span class="hero-pill">React.js</span>
+              <span class="hero-pill">Payment Gateways</span>
+              <span class="hero-pill">REST APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Companion Mobile App REST API Gateway -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <div class="project-badge">API Gateway</div>
+          </div>
+          <div class="project-card-body">
+            <h3>Companion Mobile App REST API Gateway</h3>
+            <p>High-performance data exchange layer connecting mobile clients to backend databases with token authentication and sub-100ms response profiles.</p>
+            <div class="project-tags">
+              <span class="hero-pill">REST APIs</span>
+              <span class="hero-pill">Node.js</span>
+              <span class="hero-pill">PHP</span>
+              <span class="hero-pill">JWT</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT SECTION (IMAGE 3: FORMAL STANDING CUTOUT) ================= -->
+  <section class="contact-section" id="contact">
+    <div class="wrap">
+      
+      <div class="contact-hero-wrap">
+        
+        <!-- Direct Contact Details -->
+        <div class="contact-left">
+          <div class="tag-badge"><i class="fa-solid fa-paper-plane"></i> Get In Touch</div>
+          <h2 style="margin-top:10px;">Let's Build Something Exceptional</h2>
+          <p>
+            Looking for a dedicated Full-Stack Developer, Software Developer, or Senior PHP Engineer? Contact me directly via email, phone, or LinkedIn.
+          </p>
+
+          <div class="contact-channels">
+            <!-- Email -->
+            <div class="channel-box">
+              <div class="channel-label"><i class="fa-solid fa-envelope" style="color:var(--accent);"></i> Email Address</div>
+              <div class="channel-val"><a href="mailto:r.nishanth2004@gmail.com">r.nishanth2004@gmail.com</a></div>
+              <button class="copy-action-btn" onclick="copyContact('r.nishanth2004@gmail.com', this)">
+                <i class="fa-regular fa-copy"></i> Copy Email
+              </button>
+            </div>
+
+            <!-- Phone -->
+            <div class="channel-box">
+              <div class="channel-label"><i class="fa-solid fa-phone" style="color:var(--accent);"></i> Phone / WhatsApp</div>
+              <div class="channel-val"><a href="tel:+918220607076">+91 82206 07076</a></div>
+              <button class="copy-action-btn" onclick="copyContact('+918220607076', this)">
+                <i class="fa-regular fa-copy"></i> Copy Phone
+              </button>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="channel-box">
+              <div class="channel-label"><i class="fa-brands fa-linkedin" style="color:#38bdf8;"></i> LinkedIn Profile</div>
+              <div class="channel-val"><a href="https://www.linkedin.com/in/rnishanth2004" target="_blank" rel="noopener">linkedin.com/in/rnishanth2004</a></div>
+              <a href="https://www.linkedin.com/in/rnishanth2004" target="_blank" rel="noopener" class="copy-action-btn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Profile
+              </a>
+            </div>
+
+            <!-- Location -->
+            <div class="channel-box">
+              <div class="channel-label"><i class="fa-solid fa-location-dot" style="color:#10b981;"></i> Location &amp; Status</div>
+              <div class="channel-val">Coimbatore, Tamil Nadu</div>
+              <div style="font-size:11.5px; color:#34d399; font-weight:600;">● Full-Time &amp; Remote Ready</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <a href="./Nishanth_R_Resume.pdf" class="btn btn-solid" download>
+              <i class="fa-solid fa-download"></i> Download Resume
+            </a>
+            <a href="mailto:r.nishanth2004@gmail.com" class="btn btn-outline">
+              <i class="fa-solid fa-envelope"></i> Send Direct Email
+            </a>
+          </div>
+        </div>
+
+        <!-- IMAGE 3: Full Professional Standing Cutout Stage -->
+        <div class="contact-image-stage">
+          <div class="contact-halo"></div>
+          <img src="./image_3.png" alt="Nishanth R - Full Standing Professional Cutout" class="contact-full-img">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="socials">
+        <a href="mailto:r.nishanth2004@gmail.com" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:+918220607076" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.linkedin.com/in/rnishanth2004" target="_blank" rel="noopener" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com" target="_blank" rel="noopener" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+      <div class="footer-copy">
+        Nishanth R. · Full-Stack &amp; Software Developer · Coimbatore, Tamil Nadu, India · B.E. CSE (CGPA: 7.76)
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyContact(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerHTML;
+        btn.innerHTML = `<i class="fa-solid fa-check"></i> Copied!`;
+        btn.style.color = "#34d399";
+        btn.style.borderColor = "#34d399";
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.style.color = "";
+          btn.style.borderColor = "";
+        }, 2200);
+      });
+    }
+  </script>
+</body>
+</html>

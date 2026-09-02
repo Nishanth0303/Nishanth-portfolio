@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nishanth R - Web Developer (PHP & Frontend). Fast-turnaround web portals, responsive HTML5/CSS3 layouts, REST APIs, and AI developer workflows.">
+    <title>Nishanth R. | Web Developer (PHP &amp; Frontend)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #0e0d13;
+            --bg-navy: #161424;
+            --bg-card: #1f1c33;
+            --bg-card-hover: #292544;
+            --border-card: #353054;
+            
+            --accent-orange: #ff6a1a;
+            --accent-amber: #f59e0b;
+            --accent-pink: #ec4899;
+            --accent-cyan: #38bdf8;
+            
+            --text-white: #ffffff;
+            --text-secondary: #a7a3c0;
+            --text-muted: #6f6b88;
+            
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-pill: 9999px;
+            
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-secondary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 1. Top Navbar */
+        .navbar {
+            background: rgba(14, 13, 19, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-card);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-back:hover {
+            color: var(--accent-amber);
+            transform: translateX(-4px);
+        }
+
+        .nav-title {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .nav-title span {
+            color: var(--accent-amber);
+            font-weight: 400;
+        }
+
+        .nav-links-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-gold-pill {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-amber));
+            color: #000000;
+            padding: 8px 20px;
+            border-radius: var(--radius-pill);
+            font-family: var(--font-heading);
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(255, 106, 26, 0.35);
+            transition: var(--transition);
+        }
+
+        .btn-gold-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 106, 26, 0.55);
+            color: #000000;
+        }
+
+        /* 2. Hero Section */
+        .hero-banner {
+            background: radial-gradient(circle at 75% 30%, #292040 0%, #110e1c 100%);
+            border-bottom: 1px solid var(--border-card);
+            padding: 70px 0 65px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.4rem;
+            font-weight: 900;
+            color: var(--text-white);
+            line-height: 1.05;
+            margin-bottom: 6px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-amber);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 18px;
+        }
+
+        .hero-desc {
+            font-size: 0.98rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 580px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-solid {
+            background: linear-gradient(135deg, var(--accent-amber), #d97706);
+            color: #080d1a;
+            padding: 11px 24px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.92rem;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+            transition: var(--transition);
+        }
+
+        .btn-hero-solid:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.5);
+        }
+
+        .btn-hero-outline {
+            background: rgba(31, 28, 51, 0.6);
+            color: var(--text-white);
+            border: 1px solid var(--border-card);
+            padding: 11px 24px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-hero-outline:hover {
+            border-color: var(--accent-amber);
+            color: var(--accent-amber);
+        }
+
+        /* Hero Right Portrait */
+        .hero-portrait-card {
+            position: relative;
+            width: 280px;
+            height: 340px;
+            border-radius: 24px;
+            background: #151322;
+            border: 2px solid var(--accent-amber);
+            box-shadow: 0 0 35px rgba(245, 158, 11, 0.25);
+            overflow: hidden;
+            padding: 6px;
+            margin: 0 auto;
+        }
+
+        .hero-portrait-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        /* Technical Hierarchy Section */
+        .section-hierarchy {
+            padding: 70px 0 50px;
+        }
+
+        .section-header-gold {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header-gold h2 {
+            font-family: var(--font-heading);
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .hierarchy-grid-6 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .tech-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 24px 22px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .tech-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-amber);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+        }
+
+        .tech-card-header {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .tech-card-num {
+            font-family: var(--font-heading);
+            font-size: 1.9rem;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .tech-card-title {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #d1d5db;
+            text-transform: uppercase;
+        }
+
+        .tech-tags-prominent {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .tech-tag-glowing {
+            background: rgba(255, 106, 26, 0.1);
+            border: 1.5px solid var(--accent-amber);
+            color: #fef08a;
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+        }
+
+        /* Solutions section */
+        .section-solutions {
+            padding: 50px 0;
+        }
+
+        .pill-badge-header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .solutions-badge {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-amber));
+            color: #080d1a;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 900;
+            padding: 10px 32px;
+            border-radius: var(--radius-pill);
+            box-shadow: 0 4px 20px rgba(255, 106, 26, 0.3);
+            text-transform: uppercase;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .solution-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 30px 28px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .solution-card:hover {
+            border-color: var(--accent-amber);
+            transform: translateY(-4px);
+        }
+
+        .solution-title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .solution-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 22px;
+            flex-grow: 1;
+        }
+
+        .cta-gold-box {
+            border: 2px solid var(--accent-amber);
+            background: radial-gradient(circle at center, #261f38 0%, #151322 100%);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 0 35px rgba(245, 158, 11, 0.25);
+            margin: 40px 0 60px;
+        }
+
+        .cta-gold-box h3 {
+            font-family: var(--font-heading);
+            font-size: 1.55rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-card);
+            background: #08070c;
+            padding: 24px 0;
+            text-align: center;
+            font-size: 0.86rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-actions { justify-content: center; }
+            .hierarchy-grid-6 { grid-template-columns: repeat(2, 1fr); }
+            .solutions-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 680px) {
+            .hierarchy-grid-6 { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.6rem; }
+            .nav-title { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Top Navbar -->
+    <header class="navbar">
+        <div class="container nav-inner">
+            <div class="nav-left-group">
+                <a href="./index.html" class="nav-back">
+                    <i class="fa-solid fa-arrow-left"></i> All Profiles
+                </a>
+                <div class="nav-title">
+                    Nishanth R. <span>- Web Developer (PHP &amp; Frontend)</span>
+                </div>
+            </div>
+
+            <div class="nav-links-right">
+                <a href="./full-stack.html" style="color:var(--text-secondary);font-size:13.5px;font-weight:500;">Full-Stack</a>
+                <a href="./software-dev.html" style="color:var(--text-secondary);font-size:13.5px;font-weight:500;">Software/ERP</a>
+                <a href="./Nishanth_R_Resume.pdf" class="btn-gold-pill" download>
+                    <i class="fa-solid fa-download"></i> Download Resume
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="hero-banner">
+        <div class="container hero-grid">
+            <div class="hero-text-col">
+                <h1 class="hero-title">NISHANTH R.</h1>
+                <div class="hero-subtitle">WEB DEVELOPER (PHP &amp; FRONTEND)</div>
+                <p class="hero-desc">
+                    Specialized in fast-turnaround web portals, responsive HTML5/CSS3 user interfaces, third-party API connections, and AI developer productivity workflows.
+                </p>
+                <div class="hero-actions">
+                    <a href="./Nishanth_R_Resume.pdf" class="btn-hero-solid" download>
+                        <i class="fa-solid fa-download"></i> Download Resume
+                    </a>
+                    <a href="#core-web-hierarchy" class="btn-hero-outline">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <div class="hero-portrait-card">
+                    <img src="./profile.jpg" alt="Nishanth R." class="hero-portrait-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Strict Technical Hierarchy (6-Card Section) -->
+    <section class="section-hierarchy" id="core-web-hierarchy">
+        <div class="container">
+            <div class="section-header-gold">
+                <h2>Core Web Technical Hierarchy</h2>
+            </div>
+
+            <div class="hierarchy-grid-6">
+                <!-- 01 -->
+                <div class="tech-card">
+                    <div class="tech-card-header">
+                        <span class="tech-card-num">01</span>
+                        <h3 class="tech-card-title">PHP Web Applications</h3>
+                    </div>
+                    <div class="tech-tags-prominent">
+                        <span class="tech-tag-glowing">Core PHP</span>
+                        <span class="tech-tag-glowing">CodeIgniter 3</span>
+                        <span class="tech-tag-glowing">MySQL</span>
+                    </div>
+                </div>
+
+                <!-- 02 -->
+                <div class="tech-card">
+                    <div class="tech-card-header">
+                        <span class="tech-card-num">02</span>
+                        <h3 class="tech-card-title">Responsive UI / CSS3</h3>
+                    </div>
+                    <div class="tech-tags-prominent">
+                        <span class="tech-tag-glowing">HTML5</span>
+                        <span class="tech-tag-glowing">CSS3 Grid / Flex</span>
+                        <span class="tech-tag-glowing">Bootstrap 4/5</span>
+                    </div>
+                </div>
+
+                <!-- 03 -->
+                <div class="tech-card">
+                    <div class="tech-card-header">
+                        <span class="tech-card-num">03</span>
+                        <h3 class="tech-card-title">JavaScript &amp; Interactivity</h3>
+                    </div>
+                    <div class="tech-tags-prominent">
+                        <span class="tech-tag-glowing">JavaScript (ES6+)</span>
+                        <span class="tech-tag-glowing">AJAX</span>
+                        <span class="tech-tag-glowing">jQuery</span>
+                    </div>
+                </div>
+
+                <!-- 04 -->
+                <div class="tech-card">
+                    <div class="tech-card-header">
+                        <span class="tech-card-num">04</span>
+                        <h3 class="tech-card-title">API Connections</h3>
+                    </div>
+                    <div class="tech-tags-prominent">
+                        <span class="tech-tag-glowing">REST APIs</span>
+                        <span class="tech-tag-glowing">Payment Gateways</span>
+                        <span class="tech-tag-glowing">cURL</span>
+                    </div>
+                </div>
+
+                <!-- 05 -->
+                <div class="tech-card">
+                    <div class="tech-card-header">
+                        <span class="tech-card-num">05</span>
+                        <h3 class="tech-card-title">Performance &amp; Speed</h3>
+                    </div>
+                    <div class="tech-tags-prominent">
+                        <span class="tech-tag-glowing">SEO Best Practices</span>
+                        <span class="tech-tag-glowing">Fast Loading</span>
+                        <span class="tech-tag-glowing">Clean Markup</span>
+                    </div>
+                </div>
+
+                <!-- 06 -->
+                <div class="tech-card">
+                    <div class="tech-card-header">
+                        <span class="tech-card-num">06</span>
+                        <h3 class="tech-card-title">AI Tooling &amp; Productivity</h3>
+                    </div>
+                    <div class="tech-tags-prominent">
+                        <span class="tech-tag-glowing">AI Vibe-Coding</span>
+                        <span class="tech-tag-glowing">Rapid Prototyping</span>
+                        <span class="tech-tag-glowing">Automated QA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="section-solutions">
+        <div class="container">
+            <div class="pill-badge-header">
+                <div class="solutions-badge">Fast Turnaround Web Solutions</div>
+            </div>
+
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <h3 class="solution-title">Custom E-Commerce &amp; Product Catalogs</h3>
+                    <p class="solution-desc">Interactive product showcase, custom pricing recalculations, dynamic cart checkout, and seamless order dispatching.</p>
+                </div>
+
+                <div class="solution-card">
+                    <h3 class="solution-title">Client Web Portals &amp; Dashboards</h3>
+                    <p class="solution-desc">Intuitive, responsive web dashboards with live AJAX data fetching, role-based user access, and clean UI navigation.</p>
+                </div>
+            </div>
+
+            <!-- CTA Box -->
+            <div class="cta-gold-box">
+                <h3>NEED A FAST, PRODUCTION-READY WEB DEVELOPER?</h3>
+                <a href="./Nishanth_R_Resume.pdf" class="btn-gold-pill" download style="font-size:1rem;padding:12px 30px;">
+                    <i class="fa-solid fa-download"></i> DOWNLOAD WEB DEVELOPER RESUME
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            © 2026 Nishanth R. • <a href="./index.html" style="color:var(--accent-amber);">Return to Portfolio Hub</a> • Coimbatore, Tamil Nadu, India
+        </div>
+    </footer>
+</body>
+</html>
