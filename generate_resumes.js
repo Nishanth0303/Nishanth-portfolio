@@ -55,4 +55,5 @@ startxref
 createSimplePDF("Resume", "Nishanth_R_Resume.pdf");
 createSimplePDF("Full-Stack Developer Resume", "Nishanth_R_Full_Stack_Developer_Resume.pdf");
 createSimplePDF("Software Developer Resume", "Nishanth_R_Software_Developer_Resume.pdf");
+createSimplePDF("Application Developer Resume", "Nishanth_R_Application_Developer_Resume_2026.pdf");
 console.log("Created resume PDFs successfully!");
