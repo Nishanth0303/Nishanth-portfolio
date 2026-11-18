@@ -46,7 +46,7 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
     body {
       background: var(--bg);
       color: var(--text);
@@ -841,7 +841,7 @@
       display: inline-flex;
       align-items: center;
       gap: 16px;
-      padding: 12px 18px;
+      padding: 14px 18px;
       background: rgba(255, 255, 255, 0.035);
       border: 1px solid rgba(255, 106, 26, 0.32);
       border-radius: 14px;
@@ -849,7 +849,7 @@
       -webkit-backdrop-filter: blur(8px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
       transition: all 0.25s ease;
-      max-width: 480px;
+      max-width: 520px;
     }
     .hero-qr-card:hover {
       border-color: var(--accent);
@@ -865,12 +865,13 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
     }
     .hero-qr-thumb img {
-      width: 84px;
-      height: 84px;
+      width: 90px;
+      height: 90px;
       display: block;
     }
     .hero-qr-meta {
       text-align: left;
+      flex: 1;
     }
     .hero-qr-pill {
       display: inline-flex;
@@ -883,7 +884,7 @@
       font-weight: 700;
     }
     .hero-qr-title {
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 700;
       color: #ffffff;
       margin-top: 2px;
@@ -893,6 +894,38 @@
       color: var(--text-dim);
       margin-top: 2px;
       line-height: 1.4;
+    }
+    .hero-qr-url-box {
+      margin-top: 6px;
+      margin-bottom: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px dashed rgba(255, 106, 26, 0.35);
+      border-radius: 8px;
+      padding: 6px 10px;
+      text-align: left;
+    }
+    .hero-qr-url-label {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .hero-qr-url-text {
+      font-size: 11px;
+      color: #38bdf8;
+      font-family: monospace;
+      word-break: break-all;
+      margin-top: 2px;
+      display: block;
+    }
+    .hero-qr-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
     }
     .hero-qr-btn {
       display: inline-flex;
@@ -914,7 +947,7 @@
       color: #ffffff;
     }
 
-    /* Floating Sticky Quick-Scan Widget (Bottom-Right Visible at all times) */
+    /* Floating Sticky Quick-Scan Widget (Desktop & Mobile) */
     .sticky-qr-widget {
       position: fixed;
       bottom: 22px;
@@ -931,6 +964,7 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
     }
     .sticky-qr-widget:hover {
       transform: translateY(-3px);
@@ -971,9 +1005,141 @@
       font-size: 10px;
       color: var(--text-dim);
     }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    /* Mobile Responsive Optimizations */
     @media (max-width: 640px) {
-      .sticky-qr-widget { display: none; }
-      .hero-qr-card { width: 100%; }
+      /* Header & Mobile Navbar */
+      .nav {
+        height: 62px;
+      }
+      .nav-links {
+        display: none !important;
+      }
+      .nav-qr-btn {
+        display: none !important;
+      }
+      .nav-passport-avatar {
+        width: 38px;
+        height: 38px;
+      }
+      .brand-logo {
+        gap: 10px;
+      }
+      .logo-text {
+        font-size: 15.5px;
+        line-height: 1.2;
+      }
+      .logo-text span {
+        font-size: 10px;
+      }
+      .nav-actions {
+        gap: 6px;
+      }
+      .nav-actions .btn-solid,
+      .nav-actions .btn {
+        padding: 8px 14px !important;
+        font-size: 12.5px !important;
+        white-space: nowrap;
+      }
+
+      .hero-qr-card {
+        width: 100%;
+        box-sizing: border-box;
+        flex-direction: column;
+        text-align: center;
+        padding: 18px 14px;
+        align-items: center;
+      }
+      .hero-qr-thumb {
+        margin-bottom: 6px;
+      }
+      .hero-qr-thumb img {
+        width: 110px;
+        height: 110px;
+      }
+      .hero-qr-meta {
+        text-align: center;
+        width: 100%;
+      }
+      .hero-qr-url-box {
+        text-align: center;
+      }
+      .hero-qr-url-label {
+        justify-content: center;
+      }
+      .hero-qr-actions {
+        justify-content: center;
+      }
+      .qr-channel-card {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+      .qr-channel-card > div:last-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .qr-channel-card .copy-action-btn {
+        width: auto;
+      }
+      .sticky-qr-widget {
+        bottom: 14px;
+        right: 14px;
+        padding: 6px 12px;
+        gap: 8px;
+        border-radius: 30px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75);
+      }
+      .sticky-qr-thumb {
+        padding: 3px;
+        border-radius: 6px;
+      }
+      .sticky-qr-thumb img {
+        width: 34px;
+        height: 34px;
+      }
+      .sticky-qr-title {
+        font-size: 11px;
+      }
+      .sticky-qr-sub {
+        display: none;
+      }
+      .sticky-qr-text button {
+        display: none;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .wrap.nav {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .nav-passport-avatar {
+        width: 34px;
+        height: 34px;
+      }
+      .brand-logo {
+        gap: 7px;
+      }
+      .logo-text {
+        font-size: 14px;
+      }
+      .logo-text span {
+        display: none;
+      }
+      .nav-actions .btn-solid,
+      .nav-actions .btn {
+        padding: 7px 11px !important;
+        font-size: 11.5px !important;
+      }
     }
   </style>
 </head>
@@ -996,11 +1162,11 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div style="display:flex; gap:10px; align-items:center;">
-        <button class="btn btn-outline" onclick="openQrModal()" style="padding: 10px 16px; font-size: 13.5px;" title="Scan QR Code to open on mobile">
+      <div class="nav-actions">
+        <button class="btn btn-outline nav-qr-btn" onclick="openQrModal()" style="padding: 10px 16px; font-size: 13.5px;" title="Scan QR Code to open on mobile">
           <i class="fa-solid fa-qrcode"></i> Scan QR
         </button>
-        <a href="./Nishanth_R_PHP_Developer_Resume.pdf" class="btn btn-solid" style="padding: 10px 20px; font-size: 13.5px;" download>
+        <a href="./Nishanth_R_PHP_Developer_Resume.pdf" class="btn btn-solid nav-cv-btn" style="padding: 10px 20px; font-size: 13.5px;" download>
           <i class="fa-solid fa-download"></i> Download CV
         </a>
       </div>
@@ -1058,7 +1224,7 @@
           </div>
         </div>
 
-        <!-- Directly Visible Hero QR Scan Card -->
+        <!-- Directly Visible Hero QR Scan Card with Output URL Data -->
         <div class="hero-qr-card">
           <div class="hero-qr-thumb">
             <img src="./qr-php-dev.svg" alt="Scan QR Code to open page on mobile">
@@ -1066,10 +1232,18 @@
           <div class="hero-qr-meta">
             <div class="hero-qr-pill"><i class="fa-solid fa-qrcode"></i> Instant Mobile Scan</div>
             <div class="hero-qr-title">Scan with Phone Camera</div>
-            <div class="hero-qr-sub">Scan to instantly open &amp; share this PHP Developer portfolio.</div>
-            <div style="display:flex; gap:8px; margin-top:6px;">
-              <button class="hero-qr-btn" onclick="copyCurrentPageUrl(this)"><i class="fa-regular fa-copy"></i> Copy Link</button>
-              <button class="hero-qr-btn" onclick="openQrModal()"><i class="fa-solid fa-expand"></i> View Large</button>
+            <div class="hero-qr-sub">Scan to instantly open &amp; share this PHP Developer portfolio on any mobile device.</div>
+            
+            <!-- Output URL Data explicitly shown on QR card -->
+            <div class="hero-qr-url-box">
+              <div class="hero-qr-url-label"><i class="fa-solid fa-link"></i> Output URL (QR Scan Target):</div>
+              <a href="https://nishanth0303.github.io/Nishanth-portfolio/php-dev.html" class="hero-qr-url-text" id="heroQrUrlText" target="_blank">https://nishanth0303.github.io/Nishanth-portfolio/php-dev.html</a>
+            </div>
+
+            <div class="hero-qr-actions">
+              <button class="hero-qr-btn" onclick="copyCurrentPageUrl(this)"><i class="fa-regular fa-copy"></i> Copy URL</button>
+              <a href="https://nishanth0303.github.io/Nishanth-portfolio/php-dev.html" class="hero-qr-btn" id="heroQrVisitLink" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open URL</a>
+              <button class="hero-qr-btn" onclick="openQrModal()"><i class="fa-solid fa-expand"></i> Enlarge</button>
             </div>
           </div>
         </div>
@@ -1486,9 +1660,16 @@
                 <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.8px; color:var(--accent); font-weight:700;"><i class="fa-solid fa-qrcode"></i> Instant Mobile Access</div>
                 <div style="font-size:14px; font-weight:700; color:#fff; margin-top:2px;">Scan with Your Phone Camera</div>
                 <div style="font-size:12px; color:var(--text-dim); margin-top:3px;">Easily open, view, or share this PHP Developer portfolio URL directly on any mobile device.</div>
-                <div style="display:flex; gap:10px; margin-top:10px; align-items:center; flex-wrap:wrap;">
+                
+                <!-- Output URL Data in Contact Section -->
+                <div style="margin-top:8px; margin-bottom:8px; background:rgba(0,0,0,0.4); border:1px dashed rgba(255,106,26,0.35); border-radius:8px; padding:6px 12px; display:inline-block; max-width:100%; box-sizing:border-box;">
+                  <span style="font-size:10px; text-transform:uppercase; letter-spacing:0.5px; color:var(--accent); font-weight:700;"><i class="fa-solid fa-link"></i> Output URL Data:</span>
+                  <div class="contact-qr-url-text" style="font-size:11.5px; color:#38bdf8; font-family:monospace; word-break:break-all; margin-top:2px;">https://nishanth0303.github.io/Nishanth-portfolio/php-dev.html</div>
+                </div>
+
+                <div style="display:flex; gap:10px; margin-top:6px; align-items:center; flex-wrap:wrap;">
                   <button class="copy-action-btn" style="position:static; padding:6px 14px;" onclick="copyCurrentPageUrl(this)">
-                    <i class="fa-regular fa-copy"></i> Copy Page URL
+                    <i class="fa-regular fa-copy"></i> Copy Output URL
                   </button>
                   <button class="copy-action-btn" style="position:static; padding:6px 14px;" onclick="openQrModal()">
                     <i class="fa-solid fa-expand"></i> View Large QR
@@ -1623,13 +1804,22 @@
     });
 
     document.addEventListener('DOMContentLoaded', () => {
-      const urlDisplay = document.getElementById('qrModalUrl');
-      if (urlDisplay) urlDisplay.textContent = getShareableUrl();
+      const shareUrl = getShareableUrl();
+      const modalUrl = document.getElementById('qrModalUrl');
+      if (modalUrl) modalUrl.textContent = shareUrl;
+      const heroUrl = document.getElementById('heroQrUrlText');
+      if (heroUrl) {
+        heroUrl.textContent = shareUrl;
+        heroUrl.href = shareUrl;
+      }
+      const heroLink = document.getElementById('heroQrVisitLink');
+      if (heroLink) heroLink.href = shareUrl;
+      document.querySelectorAll('.contact-qr-url-text').forEach(el => el.textContent = shareUrl);
     });
   </script>
 
-  <!-- Directly Visible Sticky Desktop Quick-Scan QR Widget -->
-  <div class="sticky-qr-widget">
+  <!-- Directly Visible Sticky Quick-Scan QR Widget (Desktop & Mobile) -->
+  <div class="sticky-qr-widget" onclick="openQrModal()" title="Tap to view QR & copy URL">
     <div class="sticky-qr-thumb">
       <img src="./qr-php-dev.svg" alt="Scan QR to open page on phone">
     </div>
@@ -1638,7 +1828,7 @@
       <div class="sticky-qr-title">Scan Page QR</div>
       <div class="sticky-qr-sub">Scan to view on phone</div>
       <div style="margin-top:4px;">
-        <button class="hero-qr-btn" style="padding:2px 8px; font-size:10px;" onclick="openQrModal()"><i class="fa-solid fa-expand"></i> Enlarge</button>
+        <span class="hero-qr-btn" style="padding:2px 8px; font-size:10px;"><i class="fa-solid fa-expand"></i> Enlarge</span>
       </div>
     </div>
   </div>
