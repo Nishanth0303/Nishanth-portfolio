@@ -7,7 +7,7 @@ function createSimplePDF(title, filename) {
 (NISHANTH R - ${title}) Tj
 /F1 11 Tf
 0 -26 Td
-(Email: r.nishanth2004@gmail.com | Phone: +91 8220607076 | Location: Coimbatore, TN) Tj
+(Email: r.nishanth2004@gmail.com | Phone: +91 8220607076 | Current Location: Chennai, TN | Native: Coimbatore, TN) Tj
 0 -24 Td
 (Education: B.E. in Computer Science & Engineering, Ambal Professional Group of Institutions | CGPA: 7.76/10 | 2017-2021) Tj
 0 -24 Td

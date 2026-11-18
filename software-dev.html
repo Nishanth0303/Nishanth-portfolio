@@ -748,6 +748,233 @@
       .contact-channels { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
+
+    /* QR Code Modal & Components */
+    .qr-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 8, 16, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .qr-modal-backdrop.active {
+      display: flex;
+    }
+    .qr-modal-card {
+      background: #0f1629;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 20px;
+      max-width: 420px;
+      width: 100%;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(16, 185, 129, 0.15);
+      animation: qrModalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes qrModalPop {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .qr-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-dim);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .qr-modal-close:hover {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+    .qr-box-inner {
+      background: #ffffff;
+      padding: 14px;
+      border-radius: 14px;
+      display: inline-block;
+      margin: 18px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .qr-box-inner img {
+      width: 200px;
+      height: 200px;
+      display: block;
+    }
+    .qr-url-display {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      word-break: break-all;
+      margin-top: 12px;
+      text-align: left;
+      font-family: monospace;
+    }
+    .qr-modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      justify-content: center;
+    }
+
+    /* Directly Visible Hero QR Card */
+    .hero-qr-card {
+      margin-top: 22px;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(16, 185, 129, 0.32);
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      transition: all 0.25s ease;
+      max-width: 480px;
+    }
+    .hero-qr-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(16, 185, 129, 0.15);
+    }
+    .hero-qr-thumb {
+      background: #ffffff;
+      padding: 6px;
+      border-radius: 10px;
+      display: inline-flex;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+    .hero-qr-thumb img {
+      width: 84px;
+      height: 84px;
+      display: block;
+    }
+    .hero-qr-meta {
+      text-align: left;
+    }
+    .hero-qr-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .hero-qr-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 2px;
+    }
+    .hero-qr-sub {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+    .hero-qr-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .hero-qr-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* Floating Sticky Quick-Scan Widget (Bottom-Right Visible at all times) */
+    .sticky-qr-widget {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 999;
+      background: rgba(15, 22, 41, 0.94);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 16px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7), 0 0 25px rgba(16, 185, 129, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .sticky-qr-widget:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.8), 0 0 30px rgba(16, 185, 129, 0.3);
+      border-color: var(--accent);
+    }
+    .sticky-qr-thumb {
+      background: #ffffff;
+      padding: 4px;
+      border-radius: 8px;
+      display: inline-flex;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .sticky-qr-thumb img {
+      width: 54px;
+      height: 54px;
+      display: block;
+    }
+    .sticky-qr-text {
+      text-align: left;
+    }
+    .sticky-qr-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sticky-qr-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-top: 1px;
+    }
+    .sticky-qr-sub {
+      font-size: 10px;
+      color: var(--text-dim);
+    }
+    @media (max-width: 640px) {
+      .sticky-qr-widget { display: none; }
+      .hero-qr-card { width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -769,9 +996,14 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="./Nishanth_R_Software_Developer_Resume.pdf" class="btn btn-solid" style="padding: 10px 20px; font-size: 13.5px;" download>
-        <i class="fa-solid fa-download"></i> Download CV
-      </a>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn btn-outline" onclick="openQrModal()" style="padding: 10px 16px; font-size: 13.5px;" title="Scan QR Code to open on mobile">
+          <i class="fa-solid fa-qrcode"></i> Scan QR
+        </button>
+        <a href="./Nishanth_R_Software_Developer_Resume.pdf" class="btn btn-solid" style="padding: 10px 20px; font-size: 13.5px;" download>
+          <i class="fa-solid fa-download"></i> Download CV
+        </a>
+      </div>
     </div>
   </header>
 
@@ -787,7 +1019,7 @@
         <h1>Software <span>Developer</span></h1>
         <div class="hero-subtitle">ERP Architecture &amp; Mission-Critical Backend Engineer</div>
         <p class="hero-tagline">
-          <strong>5 years of production experience</strong> specializing in heavy enterprise ERP architectures. Engineering custom <strong>Wholesale &amp; Retail Jewelry ERPs</strong>, automated <strong>multi-slab payroll calculation engines</strong>, high-concurrency <strong>MySQL composite indexing</strong>, CSP security, and hardware printer drivers based in Coimbatore, India.
+          <strong>5 years of production experience</strong> specializing in heavy enterprise ERP architectures. Engineering custom <strong>Wholesale &amp; Retail Jewelry ERPs</strong>, automated <strong>multi-slab payroll calculation engines</strong>, high-concurrency <strong>MySQL composite indexing</strong>, CSP security, and hardware printer drivers based in Chennai, India (Native: Coimbatore).
         </p>
         
         <div class="hero-pills">
@@ -803,6 +1035,9 @@
           <a href="./Nishanth_R_Software_Developer_Resume.pdf" class="btn btn-solid" download>
             <i class="fa-solid fa-file-arrow-down"></i> Download Software Dev CV
           </a>
+          <button class="btn btn-outline" onclick="openQrModal()">
+            <i class="fa-solid fa-qrcode"></i> Scan QR Code
+          </button>
           <a href="#projects" class="btn btn-outline">
             <i class="fa-solid fa-laptop-code"></i> Explore Projects
           </a>
@@ -820,6 +1055,22 @@
           <div class="stat-item">
             <span class="stat-num">100%</span>
             <span class="stat-label">Production Reliability</span>
+          </div>
+        </div>
+
+        <!-- Directly Visible Hero QR Scan Card -->
+        <div class="hero-qr-card">
+          <div class="hero-qr-thumb">
+            <img src="./qr-software-dev.svg" alt="Scan QR Code to open page on mobile">
+          </div>
+          <div class="hero-qr-meta">
+            <div class="hero-qr-pill"><i class="fa-solid fa-qrcode"></i> Instant Mobile Scan</div>
+            <div class="hero-qr-title">Scan with Phone Camera</div>
+            <div class="hero-qr-sub">Scan to instantly open &amp; share this Software Developer portfolio.</div>
+            <div style="display:flex; gap:8px; margin-top:6px;">
+              <button class="hero-qr-btn" onclick="copyCurrentPageUrl(this)"><i class="fa-regular fa-copy"></i> Copy Link</button>
+              <button class="hero-qr-btn" onclick="openQrModal()"><i class="fa-solid fa-expand"></i> View Large</button>
+            </div>
           </div>
         </div>
       </div>
@@ -997,7 +1248,8 @@
               <div style="font-size:10.5px; color:var(--text-dim);">COMMERCIAL INDUSTRY EXP</div>
             </div>
             <div style="font-size:11.5px; color:#10b981; text-align:right;">
-              Coimbatore, Tamil Nadu<br>
+              Chennai, Tamil Nadu <span style="font-size:10px; color:#34d399; font-weight:700;">(Current)</span><br>
+              <span style="font-size:10.5px; color:var(--text-dim);">Native: Coimbatore, TN</span><br>
               <span style="color:#34d399;">● Full-Time Ready</span>
             </div>
           </div>
@@ -1010,7 +1262,7 @@
             Engineering High-Reliability <span>Enterprise Software Systems</span>
           </h2>
           <p class="about-bio">
-            I am a Software Developer with 5 years of commercial production experience based in Coimbatore, Tamil Nadu. Throughout my career across Icore Software Technologies, Rk Creators, Mexerv, and freelance consulting, I have architected custom ERPs, CRM platforms, billing engines, and e-commerce architectures.
+            I am a Software Developer with 5 years of commercial production experience based in Chennai, Tamil Nadu (Native: Coimbatore). Throughout my career across Icore Software Technologies, Rk Creators, Mexerv, and freelance consulting, I have architected custom ERPs, CRM platforms, billing engines, and e-commerce architectures.
           </p>
 
           <!-- Education Card -->
@@ -1220,8 +1472,29 @@
 
             <div class="channel-box">
               <div class="channel-label"><i class="fa-solid fa-location-dot" style="color:#10b981;"></i> Location &amp; Status</div>
-              <div class="channel-val">Coimbatore, Tamil Nadu</div>
-              <div style="font-size:11.5px; color:#34d399; font-weight:600;">● Full-Time &amp; Remote Ready</div>
+              <div class="channel-val">Chennai, Tamil Nadu <span style="font-size:11px; font-weight:600; color:#34d399; background:rgba(52,211,153,0.12); padding:2px 7px; border-radius:4px; margin-left:4px;">Current</span></div>
+              <div style="font-size:12px; color:var(--text-dim); margin-top:3px;"><i class="fa-solid fa-house-chimney" style="color:var(--text-faint); margin-right:4px;"></i>Native: Coimbatore, Tamil Nadu</div>
+              <div style="font-size:11.5px; color:#34d399; font-weight:600; margin-top:4px;">● Full-Time &amp; Remote Ready</div>
+            </div>
+
+            <!-- QR Code Channel Card -->
+            <div class="channel-box qr-channel-card" style="grid-column: 1 / -1; display:flex; align-items:center; gap:20px; padding:18px 20px; background:linear-gradient(135deg, rgba(16,185,129,0.08), rgba(255,106,26,0.06)); border:1px solid rgba(16,185,129,0.25); border-radius:14px;">
+              <div style="background:#ffffff; padding:8px; border-radius:10px; display:inline-flex; box-shadow:0 6px 18px rgba(0,0,0,0.35); flex-shrink:0;">
+                <img src="./qr-software-dev.svg" alt="Scan QR Code to access portfolio" style="width:96px; height:96px; display:block;" class="qr-code-img">
+              </div>
+              <div style="flex:1;">
+                <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.8px; color:var(--accent); font-weight:700;"><i class="fa-solid fa-qrcode"></i> Instant Mobile Access</div>
+                <div style="font-size:14px; font-weight:700; color:#fff; margin-top:2px;">Scan with Your Phone Camera</div>
+                <div style="font-size:12px; color:var(--text-dim); margin-top:3px;">Easily open, view, or share this Software Developer portfolio URL directly on any mobile device.</div>
+                <div style="display:flex; gap:10px; margin-top:10px; align-items:center; flex-wrap:wrap;">
+                  <button class="copy-action-btn" style="position:static; padding:6px 14px;" onclick="copyCurrentPageUrl(this)">
+                    <i class="fa-regular fa-copy"></i> Copy Page URL
+                  </button>
+                  <button class="copy-action-btn" style="position:static; padding:6px 14px;" onclick="openQrModal()">
+                    <i class="fa-solid fa-expand"></i> View Large QR
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1229,6 +1502,9 @@
             <a href="./Nishanth_R_Software_Developer_Resume.pdf" class="btn btn-solid" download>
               <i class="fa-solid fa-download"></i> Download Software Dev Resume
             </a>
+            <button class="btn btn-outline" onclick="openQrModal()">
+              <i class="fa-solid fa-qrcode"></i> Scan QR
+            </button>
             <a href="mailto:r.nishanth2004@gmail.com" class="btn btn-outline">
               <i class="fa-solid fa-envelope"></i> Send Direct Email
             </a>
@@ -1255,10 +1531,35 @@
         <a href="https://github.com" target="_blank" rel="noopener" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
       </div>
       <div class="footer-copy">
-        Nishanth R. · Software Developer (ERP &amp; Backend) · Coimbatore, Tamil Nadu, India · B.E. CSE (CGPA: 7.76)
+        Nishanth R. · Software Developer (ERP &amp; Backend) · Chennai, TN (Native: Coimbatore) · B.E. CSE (CGPA: 7.76)
       </div>
     </div>
   </footer>
+
+  <!-- QR Code Modal Dialog -->
+  <div class="qr-modal-backdrop" id="qrModal" onclick="handleBackdropClick(event)">
+    <div class="qr-modal-card">
+      <button class="qr-modal-close" onclick="closeQrModal()" title="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--accent); font-weight:700;"><i class="fa-solid fa-qrcode"></i> Quick Mobile Access</div>
+      <h3 style="font-size:20px; font-weight:800; color:#fff; margin-top:6px;">Scan to Open Portfolio</h3>
+      <p style="font-size:12.5px; color:var(--text-dim); margin-top:4px;">Point your smartphone camera at this QR code to access this portfolio page instantly.</p>
+      
+      <div class="qr-box-inner">
+        <img src="./qr-software-dev.svg" alt="Portfolio QR Code" id="modalQrImg">
+      </div>
+
+      <div class="qr-url-display" id="qrModalUrl">https://nishanth0303.github.io/Nishanth-portfolio/software-dev.html</div>
+
+      <div class="qr-modal-actions">
+        <button class="btn btn-solid" style="padding:9px 18px; font-size:13px;" onclick="copyCurrentPageUrl(this)">
+          <i class="fa-regular fa-copy"></i> Copy Link
+        </button>
+        <a href="./qr-software-dev.svg" download="Nishanth_SoftwareDev_Portfolio_QR.svg" class="btn btn-outline" style="padding:9px 18px; font-size:13px;">
+          <i class="fa-solid fa-download"></i> Save QR
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script>
     function copyContact(text, btn) {
@@ -1274,6 +1575,72 @@
         }, 2200);
       });
     }
+
+    function getShareableUrl() {
+      const url = window.location.href;
+      if (!url.startsWith('http') || url.includes('localhost') || url.includes('127.0.0.1')) {
+        const pageName = window.location.pathname.split('/').pop() || 'software-dev.html';
+        return 'https://nishanth0303.github.io/Nishanth-portfolio/' + (pageName.endsWith('.html') ? pageName : 'software-dev.html');
+      }
+      return url;
+    }
+
+    function copyCurrentPageUrl(btn) {
+      const url = getShareableUrl();
+      navigator.clipboard.writeText(url).then(() => {
+        const orig = btn.innerHTML;
+        btn.innerHTML = `<i class="fa-solid fa-check"></i> Copied URL!`;
+        btn.style.color = "#34d399";
+        btn.style.borderColor = "#34d399";
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.style.color = "";
+          btn.style.borderColor = "";
+        }, 2200);
+      });
+    }
+
+    function openQrModal() {
+      const modal = document.getElementById('qrModal');
+      const urlDisplay = document.getElementById('qrModalUrl');
+      if (urlDisplay) urlDisplay.textContent = getShareableUrl();
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeQrModal() {
+      const modal = document.getElementById('qrModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'qrModal') {
+        closeQrModal();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeQrModal();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlDisplay = document.getElementById('qrModalUrl');
+      if (urlDisplay) urlDisplay.textContent = getShareableUrl();
+    });
   </script>
+
+  <!-- Directly Visible Sticky Desktop Quick-Scan QR Widget -->
+  <div class="sticky-qr-widget">
+    <div class="sticky-qr-thumb">
+      <img src="./qr-software-dev.svg" alt="Scan QR to open page on phone">
+    </div>
+    <div class="sticky-qr-text">
+      <div class="sticky-qr-tag"><i class="fa-solid fa-qrcode"></i> Mobile Access</div>
+      <div class="sticky-qr-title">Scan Page QR</div>
+      <div class="sticky-qr-sub">Scan to view on phone</div>
+      <div style="margin-top:4px;">
+        <button class="hero-qr-btn" style="padding:2px 8px; font-size:10px;" onclick="openQrModal()"><i class="fa-solid fa-expand"></i> Enlarge</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
